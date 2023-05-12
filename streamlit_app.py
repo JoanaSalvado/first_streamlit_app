@@ -9,6 +9,12 @@ st.markdown(':chicken: Hard-Boiled Free-Range Egg')
 st.markdown(':avocado::bread: Avocado Toast')
 st.header(':banana::strawberry: Build Your Own Fruit Smoothie :kiwifruit::grapes:')
 
-#Build the Fruit List for the smoothies, using s3 stored txt files
+# Build the Fruit List for the smoothies, using s3 stored txt files
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
+
+# Use a interactive widget (Multi-select) that allows users to pick the fruits
+## Ask user for the fruits
+st.multiselect("Pick some fruits:", list(my_fruit_list.index))
+
+## Display the table on the page
 st.dataframe(my_fruit_list)
