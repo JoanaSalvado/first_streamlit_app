@@ -9,5 +9,6 @@ st.markdown(':chicken: Hard-Boiled Free-Range Egg')
 st.markdown(':avocado::bread: Avocado Toast')
 st.header(':banana::strawberry: Build Your Own Fruit Smoothie :kiwifruit::grapes:')
 
+#Build the Fruit List for the smoothies, using s3 stored txt files
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 st.dataframe(my_fruit_list)
