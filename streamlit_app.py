@@ -13,8 +13,8 @@ st.header(':banana::strawberry: Build Your Own Fruit Smoothie :kiwifruit::grapes
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 
 # Use a interactive widget (Multi-select) that allows users to pick the fruits
-## Ask user for the fruits
-st.multiselect("Pick some fruits:", list(my_fruit_list.Fruit))
+## Ask user for the fruits - add a default set
+st.multiselect("Pick some fruits:", list(my_fruit_list.Fruit), ['Avocado','Strauberries'])
 
 ## Display the table on the page
 st.dataframe(my_fruit_list)
