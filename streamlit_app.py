@@ -14,7 +14,8 @@ my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/da
 
 # Use a interactive widget (Multi-select) that allows users to pick the fruits
 ## Ask user for the fruits - add a default set
-st.multiselect("Pick some fruits:", list(my_fruit_list.Fruit), ['Avocado','Strawberries'])
+fruits_selected = st.multiselect("Pick some fruits:", list(my_fruit_list.Fruit), ['Avocado','Strawberries'])
+fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 ## Display the table on the page
 st.dataframe(my_fruit_list)
