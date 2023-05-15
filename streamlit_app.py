@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import requests as rq
 
 st.title("My Mom's New Healthy Diner")
 st.header('Breakfast Favorites')
@@ -19,3 +20,7 @@ fruits_to_show = my_fruit_list.loc[my_fruit_list['Fruit'].isin(fruits_selected)]
 
 ## Display the table on the page
 st.dataframe(fruits_to_show)
+
+# Get Fruityvice API data
+fruityvice_response = rq.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
