@@ -64,8 +64,8 @@ if st.button('Get Fruit List'):
 if st.button('Add a Fruit to the list'):
   add_my_fruit = st.text_input('What fruit would you like to add?')
   st.text("insert into fruit_load_list values ('" + add_my_fruit + "')")
-  my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-  fruit2add = insert_row_snowflake(add_my_fruit)
-  my_cnx.close()
-  st.text(fruit2add)
+  #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+  #fruit2add = insert_row_snowflake(add_my_fruit)
+  #my_cnx.close()
+  #st.text(fruit2add)
 
