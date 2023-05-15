@@ -57,14 +57,14 @@ st.header('View Out Fruit List - Add Your Favorites!')
 if st.button('Get Fruit List'):
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
-  #my_cnx.close()
+  my_cnx.close()
   st.dataframe(my_data_rows)
 
 # Add a button to trigger the Snowflake aditions
 st.header('What fruit would you like to add?')
 if st.button('Add a Fruit to the list'):
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-  fruit_add = st.text_input('Name?') 
-  fruit2add = insert_row_snowflake(fruit_add)
-  st.dataframe(fruit2add)
+  fruit2add = insert_row_snowflake(add_my_fruit)
+  my_cnx.close()
+  st.text(fruit2add)
 
