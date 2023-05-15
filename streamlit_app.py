@@ -24,4 +24,7 @@ st.dataframe(fruits_to_show)
 # Get Fruityvice API data
 st.header('Fruityvice Fruit Advice!')
 fruityvice_response = rq.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response.json())
+
+# Make the Fruityvice data looking nice
+fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+st.dataframe(fruityvice_normalized)
