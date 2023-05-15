@@ -23,7 +23,11 @@ st.dataframe(fruits_to_show)
 
 # Get Fruityvice API data
 st.header('Fruityvice Fruit Advice!')
-fruityvice_response = rq.get("https://fruityvice.com/api/fruit/" + "kiwi")
+
+fruit_choice = st.tex_input("What fruit would you like information about?", "Kiwi")
+st.write('The user entered', fruit_choice)
+
+fruityvice_response = rq.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
 # Make the Fruityvice data looking nice
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
