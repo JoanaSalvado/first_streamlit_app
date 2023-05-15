@@ -63,13 +63,8 @@ if st.button('Get Fruit List'):
 # Add a button to trigger the Snowflake aditions
 st.header('What fruit would you like to add?')
 if st.button('Add a Fruit to the list'):
+  fruit_add = st.text_input('Name?')
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-  fruit2add = insert_row_snowflake(add_my_fruit)
+  fruit2add = insert_row_snowflake(fruit_add)
   st.dataframe(fruit2add)
 
-st.stop()
-fruit_add = st.text_input('What fruit would you like to add?', 'jackfruit')
-st.write('Thanks for adding', fruit_add)
-
-# Test adding values from Streamlit into snowflake
-my_cur.execute("insert into fruit_load_list values ('from strealit')")
