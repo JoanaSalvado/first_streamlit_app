@@ -42,4 +42,7 @@ st.header("The fruit load list:")
 st.dataframe(my_data_rows)
 
 fruit_add = st.text_input('What fruit would you like to add?', 'jackfruit')
-st.write('Thanks for adding', fruit_choice)
+st.write('Thanks for adding', fruit_add)
+
+# Test adding values from Streamlit into snowflake
+my_cur.execute("insert into fruit_load_list values ('from strealit')")
